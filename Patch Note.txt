@@ -1,0 +1,26 @@
+5/10)
+기존 임시 레포지터리 삭제.
+기존 개발 내용과 유니티 프로젝트 업로드.
+exe 파일 업데이트.
+move.cs: 플레이어-장애물 간 충돌 후 2초 무적 기능 구현.
+
+[main scene]
+1. 쿠키 선택 기능 구현: 
+CharaData.cs 와 ScriptableObject 기능으로 데이터 관리(Assets\Script\CharaData 폴더 참조)
+SelectChara.cs를 통해 캐릭터 선택 Ui에 데이터 적용, Data.cs에 선택된 캐릭터 데이터 전송.
+# mm.cs는 선택된 캐릭터 이미지를 적용시키는 임시 스크립트.
+
+2. 씬 전환 및 Ui 화면 전환 구현: 
+ButtonScript.cs를 통해 구현.
+
+[play scene]
+1. 게임 데이터 관리:
+Data.cs를 통해 플레이어 능력치, 속도, 등등 게임 내 주요 데이터 관리
+
+2. 무한맵 구현:
+GroundLoop.cs를 통해 배경과 바닥의 반복되는 움직임 구현.
+SpawnObject.cs를 통해 장애물, 아이템 등 자동으로 생성.
+
+3. 플레이어 조작:
+move.cs를 통해 점프, 슬라이드, 충돌판정, 아이템 습득시 판정 등등 구현.
+
