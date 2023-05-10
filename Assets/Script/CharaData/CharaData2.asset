@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22087e22177126d4ea5e84ae981b936a, type: 3}
   m_Name: CharaData2
   m_EditorClassIdentifier: 
-  name: "\uC559\uADF8\uB155\uB9DB \uCFE0\uD0A4"
-  text: "\uADFC\uB4E4\uAC11 1\uB2E8"
+  name: "\uBA85\uB791\uD55C\uB9DB \uCFE0\uD0A4"
+  text: "\uBA85\uB791\uD568 1\uB2E8"
   hp: 150
   hp_plus: 1
   hp_minus: 1
