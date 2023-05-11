@@ -6,6 +6,8 @@ move.cs: 플레이어-장애물 간 충돌 후 2초 무적 기능 구현.
 
 5/11)
 running animation test
+GameUI.cs, HpGaugeEff.cs 파일 업로드.
+push한 코드들 Script 파일로 옮기기.
 
 [main scene]
 1. 쿠키 선택 기능 구현: 
