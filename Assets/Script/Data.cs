@@ -36,7 +36,7 @@ public class CharaSelectData
 
 public class Data : MonoBehaviour
 {
-    public static CharaSelectData MainChara = new CharaSelectData();
+    public static CharaSelectData MainChara;// = new CharaSelectData();
     public static float Speed;
     void Start()
     {
