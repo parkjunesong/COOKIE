@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /*using System.Collections;
 using System.Collection.Generic;
 =======

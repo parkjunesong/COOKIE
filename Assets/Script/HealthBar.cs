@@ -25,7 +25,7 @@ public class HealthBar : MonoBehaviour
     void Update()
     {
         // 일정한 속도로 체력 감소
-        currentHealth -= Time.deltaTime * 10f;
+        currentHealth -= Time.deltaTime * 1.5f;
         slider.value = currentHealth;
 
         // 체력이 0이 되면 게임 오버 처리
