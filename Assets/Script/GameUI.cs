@@ -1,5 +1,3 @@
-# 내가 생각하기에 필요한 UI… 또 있으면 추가하기
-# GameUI
 
 using System.Collections;
 using System.Collections.Generic;
