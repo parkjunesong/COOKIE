@@ -18,4 +18,4 @@ MonoBehaviour:
   hp_plus: 1
   hp_minus: 1
   score: 1
-  standing: {fileID: 21300000, guid: 70632ddfe8e71b04b8f90ef7e29a9e98, type: 3}
+  standing: {fileID: 21300000, guid: cc52875acf94e2749a384a2b9b122a02, type: 3}
