@@ -20,10 +20,10 @@ public class ObstacleGenerator : MonoBehaviour
     {
       //1.0f 매개변수로 입력한 숫자에 해당하는 초만큼 기다렸다가 실행
       //unity상에서의 시간을 기준으로 체크
-      while(true){
-        SpawnObstacle();
-        yield return new WaitForSeconds(spawnInterval);
-      }
+      
+      yield return new WaitForSeconds(spawnInterval);
+      SpawnObstacle();
+      StartCoroutine(SpawnObstacles());
     }
 
     void SpawnObstacle()
