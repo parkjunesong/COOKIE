@@ -5,10 +5,10 @@ public class HealthBar : MonoBehaviour
 {
     public Slider slider;
     public float maxHealth = 100f;
-    public GameObject gameOverPanel;
-
+    public GameObject GameOverPanel;
+  
     private float currentHealth;
-
+    
     void Awake()
     {
         slider = GetComponent<Slider>(); // slider 변수 초기화
@@ -19,20 +19,21 @@ public class HealthBar : MonoBehaviour
         currentHealth = maxHealth;
         slider.maxValue = maxHealth;
         slider.value = currentHealth;
-        gameOverPanel.SetActive(false);
+        GameOverPanel.SetActive(false);
     }
 
     void Update()
     {
         // 일정한 속도로 체력 감소
-        currentHealth -= Time.deltaTime * 1.5f;
+        currentHealth -= Time.deltaTime * 1.5f * 7;
         slider.value = currentHealth;
 
         // 체력이 0이 되면 게임 오버 처리
         if (currentHealth <= 0f)
         {
             Time.timeScale = 0f; // 게임 일시정지
-            gameOverPanel.SetActive(true); // 게임 오버 창 띄우기
+            GameOverPanel.SetActive(true); // 게임 오버 창 띄우기
+            HideUI();
         }
     }
 
@@ -44,5 +45,9 @@ public class HealthBar : MonoBehaviour
             currentHealth -= 20f;
             slider.value = currentHealth;
         }
+    }
+    void HideUI()
+    {
+        slider.gameObject.SetActive(false); // 체력바 UI 비활성화
     }
 }
