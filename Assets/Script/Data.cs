@@ -38,8 +38,13 @@ public class Data : MonoBehaviour
 {
     public static CharaSelectData MainChara;// = new CharaSelectData();
     public static float Speed;
+    public static float Score;
+    public static float Hp;
+
     void Start()
     {
         Speed = 7f;
+        Score = 0;
+        Hp = MainChara.HP;
     }
 }
