@@ -1029,8 +1029,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1708464211}
-  - component: {fileID: 1708464210}
   - component: {fileID: 1708464209}
+  - component: {fileID: 1708464213}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1050,31 +1050,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd202b63e97ef04690144f55c676822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1708464210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1708464208}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f546144c0a728c44b4cd34622ce7319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Obstacles:
-  - {fileID: 6182729347833125577, guid: 3d74974a5f730194ab3cb58a392251e1, type: 3}
-  - {fileID: 6182729347833125577, guid: 8fbb2b249df02024b8a5206b8e4224a3, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  Items:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  SpawnCycle: 0
 --- !u!4 &1708464211
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,6 +1065,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1708464213
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708464208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c646ea775ab20114a9274b02a73601ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclePrefab:
+  - {fileID: 0}
+  - {fileID: 6182729347833125577, guid: 8fbb2b249df02024b8a5206b8e4224a3, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnInterval: 2
+  minY: -2
+  maxY: -2
 --- !u!1 &1893908499
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,13 +3,11 @@ using System.Collections;
 
 public class ObstacleGenerator : MonoBehaviour
 {
-    public GameObject obstaclePrefab; //장애물 오브젝트의 프리팹을 가리키는 변수
-    public float spawnInterval = 1f; //장애물 스폰 주기를 결정하는 변수
+    public GameObject[] obstaclePrefab = new GameObject[5]; //장애물 오브젝트의 프리팹을 가리키는 변수
+    public float spawnInterval = 2f; //장애물 스폰 주기를 결정하는 변수
     //장애물 위치 제한하는 변수
-    public float minX = -2f;
-    public float maxX = 2f;
     public float minY = -2f;
-    public float maxY = 2f;
+    public float maxY = 1f;
 
     void Start()
     {
@@ -20,18 +18,18 @@ public class ObstacleGenerator : MonoBehaviour
     {
       //1.0f 매개변수로 입력한 숫자에 해당하는 초만큼 기다렸다가 실행
       //unity상에서의 시간을 기준으로 체크
-      
+      int i =1;
       yield return new WaitForSeconds(spawnInterval);
-      SpawnObstacle();
+      SpawnObstacle(i);
       StartCoroutine(SpawnObstacles());
     }
 
-    void SpawnObstacle()
+    void SpawnObstacle(int i)
     {
-      float x = UnityEngine.Random.Range(minX, maxX);
+      float x = 10;
       float y = UnityEngine.Random.Range(minY, maxY);
       Vector3 spawnPosition = new Vector3(x, y, 0f);
-      Instantiate(obstaclePrefab, spawnPosition, Quaternion.identity);
+      Instantiate(obstaclePrefab[i], spawnPosition, Quaternion.identity);
     }
 
 }
