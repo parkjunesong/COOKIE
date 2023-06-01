@@ -24,6 +24,13 @@ public class GameUI : MonoBehaviour
         hpBarUI.value = Data.Hp / Data.MainChara.HP;
         scoreText.text = "Score: " + Data.Score;
 
+        if (Data.Hp <= 0)
+        {
+            GameOver();
+            Time.timeScale = 0f; // 게임 일시 정지
+            yield break; // 게임 오버 상황에서는 추가로 타이머를 실행할 필요가 없으므로 코루틴을 종료합니다.
+        }
+
         StartCoroutine(Timer());
     }
 
