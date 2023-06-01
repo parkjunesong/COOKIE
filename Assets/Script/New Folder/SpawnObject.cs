@@ -11,8 +11,7 @@ public class SpawnObject : MonoBehaviour
     void Start()
     {
         SpawnCycle = 3.5f;
-        StartCoroutine("MapMaker");
-        
+        StartCoroutine("MapMaker");      
     }
 
     IEnumerator MapMaker()
