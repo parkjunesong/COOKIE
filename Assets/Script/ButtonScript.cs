@@ -34,8 +34,6 @@ public class ButtonScript : MonoBehaviour
     {
         SceneManager.LoadScene("main");
         Time.timeScale = 1f; //재시작
-        Data.Hp = Data.MainChara.HP; //체력리셋
-        Data.Score = 0f; //점수리셋
     }
     public void RetryGame()
     {

@@ -6,9 +6,10 @@ public class move : MonoBehaviour
 {
     int jc = 0;
     bool isBeat = false;
+    bool isSlide = false;
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && !isSlide)
         {           
             if (jc == 0)
             {
@@ -20,6 +21,24 @@ public class move : MonoBehaviour
                 gameObject.GetComponent<Rigidbody2D>().AddForce(Vector3.up * 6f, ForceMode2D.Impulse);
                 jc++;
             }          
+        }
+        if (Input.GetKeyDown(KeyCode.LeftShift) || Input.GetKeyDown(KeyCode.RightShift))
+        {
+            if(jc == 0)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 0.8f, gameObject.transform.position.z);
+                gameObject.transform.localScale = new Vector3(1, 0.5f, 1);
+                isSlide = true;
+            }          
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift) || Input.GetKeyUp(KeyCode.RightShift))
+        {
+            if(isSlide == true)
+            {
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 0.8f, gameObject.transform.position.z);
+                gameObject.transform.localScale = new Vector3(1, 1, 1);
+                isSlide = false;
+            }
         }
     }
 
