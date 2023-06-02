@@ -36,8 +36,8 @@ public class AbilityData
 
 public class Data : MonoBehaviour
 {
-    public static AbilityData MainChara;
-    public static AbilityData SelectedTreasure;
+    public static AbilityData MainChara = new AbilityData();
+    public static AbilityData SelectedTreasure = new AbilityData();
     public static float Speed;
     public static float Score;
     public static float Hp;
