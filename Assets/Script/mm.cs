@@ -7,6 +7,13 @@ public class mm : MonoBehaviour
 {
     public GameObject charaimage;
     public GameObject treasureimage;
+    GameObject audio;
+
+    void Start()
+    {
+        audio = GameObject.Find("Audio");
+        audio.GetComponent<AudioManager>()._play(2);
+    }
     public void setChara()
     {
         charaimage.GetComponent<Image>().sprite = Data.MainChara.Standing;
