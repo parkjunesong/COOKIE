@@ -56,7 +56,8 @@ public class ObstacleGenerator : MonoBehaviour
         }
         else if (ran == 6)
         {
-          
+            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(6, 0));
         }
         else if (ran == 7)
         {

@@ -56,7 +56,6 @@ public class move : MonoBehaviour
         {
             if (isBeat == false)
             {
-                Debug.Log("Ãæµ¹");
                 Data.Hp -= 10;
 
                 isBeat = true;

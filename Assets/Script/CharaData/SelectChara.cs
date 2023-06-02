@@ -16,7 +16,7 @@ public class SelectChara : MonoBehaviour
     }
     public void Select()
     {
-        Data.MainChara = new CharaSelectData(CData.Name, CData.Text, CData.HP, CData.HP_P, CData.HP_M, CData.Score, CData.Standing);
+        Data.MainChara = new AbilityData(CData.Name, CData.Text, CData.HP, CData.HP_P, CData.HP_M, CData.Score, CData.Standing);
         GameObject.Find("Master").GetComponent<mm>().setChara();
     }
 }

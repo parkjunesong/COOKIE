@@ -5,9 +5,14 @@ using UnityEngine.UI;
 
 public class mm : MonoBehaviour
 {
-    public GameObject a; 
+    public GameObject charaimage;
+    public GameObject treasureimage;
     public void setChara()
     {
-        a.GetComponent<Image>().sprite = Data.MainChara.Standing;
+        charaimage.GetComponent<Image>().sprite = Data.MainChara.Standing;
+    }
+    public void setTreasure()
+    {
+        treasureimage.GetComponent<Image>().sprite = Data.SelectedTreasure.Standing;
     }
 }

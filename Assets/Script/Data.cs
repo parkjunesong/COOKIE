@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharaSelectData
+public class AbilityData
 {
     public string Name;
     public string Text;
@@ -12,7 +12,7 @@ public class CharaSelectData
     public float Score;
     public Sprite Standing;
 
-    public CharaSelectData()
+    public AbilityData()
     {
         Name = "None";
         Text = "";
@@ -22,7 +22,7 @@ public class CharaSelectData
         Score = 0;     
         Standing = Resources.Load("Chara/default", typeof(Sprite)) as Sprite;
     }
-    public CharaSelectData(string _name, string _text, int _hp, float _hpp, float _hpm, float _score, Sprite _standing)
+    public AbilityData(string _name, string _text, int _hp, float _hpp, float _hpm, float _score, Sprite _standing)
     {
         Name = _name;
         Text = _text;
@@ -36,7 +36,8 @@ public class CharaSelectData
 
 public class Data : MonoBehaviour
 {
-    public static CharaSelectData MainChara;// = new CharaSelectData();
+    public static AbilityData MainChara;
+    public static AbilityData SelectedTreasure;
     public static float Speed;
     public static float Score;
     public static float Hp;
@@ -45,6 +46,8 @@ public class Data : MonoBehaviour
     {
         Speed = 7f;
         Score = 0;
+
+        MainChara = new AbilityData(MainChara.Name, MainChara.Text, MainChara.HP + SelectedTreasure.HP, MainChara.HP_P + SelectedTreasure.HP_P, MainChara.HP_M + SelectedTreasure.HP_M, MainChara.Score + SelectedTreasure.Score, MainChara.Standing);
         Hp = MainChara.HP;
     }
 }
