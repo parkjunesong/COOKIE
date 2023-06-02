@@ -56,7 +56,7 @@ public class move : MonoBehaviour
         {
             if (isBeat == false)
             {
-                Data.Hp -= 10;
+                Data.Hp -= 10 - Data.MainChara.HP_M; // 데미지 표시 ui 필요할지도 
 
                 isBeat = true;
                 StartCoroutine("UnBeatTime");
