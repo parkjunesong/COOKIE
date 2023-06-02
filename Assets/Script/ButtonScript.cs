@@ -35,13 +35,6 @@ public class ButtonScript : MonoBehaviour
         Scene[0].SetActive(false);
         Scene[2].SetActive(true);
     }
-    public void RetryGame()
-    {
-        SceneManager.LoadScene("play");
-        Time.timeScale = 1f; //재시작
-        Data.Hp = Data.MainChara.HP; //체력리셋
-        Data.Score = 0f; //점수리셋
-    }
     public void Pause()
     {
         Time.timeScale = 0f; //정지

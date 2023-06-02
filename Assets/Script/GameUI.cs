@@ -7,6 +7,7 @@ public class GameUI : MonoBehaviour
     public GameObject gameOverUI;
     public Slider hpBarUI;
     public Text scoreText;
+    public Text hpText;
 
     void Start()
     {
@@ -23,6 +24,7 @@ public class GameUI : MonoBehaviour
         Data.Hp -= 0.3f;
         hpBarUI.value = Data.Hp / Data.MainChara.HP;
         scoreText.text = "Score: " + Data.Score;
+        hpText.text = (int)Data.Hp + "";
 
         if (Data.Hp <= 0)
         {
