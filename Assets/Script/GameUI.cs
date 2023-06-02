@@ -8,6 +8,8 @@ public class GameUI : MonoBehaviour
     public Slider hpBarUI;
     public Text scoreText;
     public Text hpText;
+    public GameObject pauseButton;
+    
 
     void Start()
     {
@@ -40,6 +42,7 @@ public class GameUI : MonoBehaviour
     {
         hpBarUI.gameObject.SetActive(false); // 체력바 UI 비활성화
         scoreText.gameObject.SetActive(false); // 점수 UI 비활성화
+        pauseButton.SetActive(false);
         gameOverUI.SetActive(true); // 게임 오버 창 띄우기
     }
 }

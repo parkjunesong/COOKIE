@@ -1515,6 +1515,7 @@ MonoBehaviour:
   hpBarUI: {fileID: 1081813370}
   scoreText: {fileID: 560462791}
   hpText: {fileID: 1722989011}
+  pauseButton: {fileID: 1881954484}
 --- !u!114 &1708464215
 MonoBehaviour:
   m_ObjectHideFlags: 0
