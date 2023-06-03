@@ -60,4 +60,12 @@ public class CharaData : ScriptableObject
         get { return standing; }
         set { standing = value; }
     }
+
+    [SerializeField]
+    private RuntimeAnimatorController ani;
+    public RuntimeAnimatorController Ani
+    {
+        get { return ani; }
+        set { ani = value; }
+    }
 }

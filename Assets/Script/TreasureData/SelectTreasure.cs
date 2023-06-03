@@ -16,7 +16,7 @@ public class SelectTreasure : MonoBehaviour
     }
     public void Select()
     {
-        Data.SelectedTreasure = new AbilityData(TData.Name, TData.Text, TData.HP, TData.HP_P, TData.HP_M, TData.Score, TData.Image);
+        Data.SelectedTreasure = new AbilityData(TData.Name, TData.Text, TData.HP, TData.HP_P, TData.HP_M, TData.Score, TData.Image, null);
         GameObject.Find("Master").GetComponent<mm>().setTreasure();
     }
 }

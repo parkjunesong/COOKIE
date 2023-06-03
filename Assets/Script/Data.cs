@@ -11,6 +11,7 @@ public class AbilityData
     public float HP_M;
     public float Score;
     public Sprite Standing;
+    public RuntimeAnimatorController Ani;
 
     public AbilityData()
     {
@@ -21,8 +22,9 @@ public class AbilityData
         HP_M = 0;
         Score = 0;     
         Standing = Resources.Load("Chara/default", typeof(Sprite)) as Sprite;
+        //Ani =
     }
-    public AbilityData(string _name, string _text, int _hp, float _hpp, float _hpm, float _score, Sprite _standing)
+    public AbilityData(string _name, string _text, int _hp, float _hpp, float _hpm, float _score, Sprite _standing, RuntimeAnimatorController _ani)
     {
         Name = _name;
         Text = _text;
@@ -31,6 +33,7 @@ public class AbilityData
         HP_M = _hpm;
         Score = _score;
         Standing = _standing;
+        Ani = _ani;
     }
 }
 
@@ -47,11 +50,13 @@ public class Data : MonoBehaviour
     {
         Speed = 6f;
         Score = 0;
-        MainChara = new AbilityData(MainChara.Name, MainChara.Text, MainChara.HP + SelectedTreasure.HP, MainChara.HP_P + SelectedTreasure.HP_P, MainChara.HP_M + SelectedTreasure.HP_M, MainChara.Score + SelectedTreasure.Score, MainChara.Standing);
+        MainChara = new AbilityData(MainChara.Name, MainChara.Text, MainChara.HP + SelectedTreasure.HP, MainChara.HP_P + SelectedTreasure.HP_P, MainChara.HP_M + SelectedTreasure.HP_M, MainChara.Score + SelectedTreasure.Score, MainChara.Standing, MainChara.Ani);
         Hp = MainChara.HP;
+        GameObject.Find("Player").GetComponent<Animator>().runtimeAnimatorController = MainChara.Ani;
 
         audio = GameObject.Find("Audio");       
         int ran = Random.Range(5, 8) + 1;
         audio.GetComponent<AudioManager>()._loop(ran);
+            
     }
 }
