@@ -6,18 +6,19 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject[] obstaclePrefab = new GameObject[5]; //장애물 오브젝트의 프리팹을 가리키는 변수
     public GameObject[] itemPrefab = new GameObject[5];
     public GameObject[] scaffoldingPrefab = new GameObject[5];
-    public float spawnInterval = 3.5f; //장애물 스폰 주기를 결정하는 변수
+    public float spawnInterval; //장애물 스폰 주기를 결정하는 변수
 
     void Start()
     {
-      StartCoroutine(SpawnObstacles());
+        spawnInterval = 3f;
+        StartCoroutine(SpawnObstacles());
     }
 
     IEnumerator SpawnObstacles()
     {
       yield return new WaitForSeconds(spawnInterval);
 
-        int ran = Random.Range(0, 16) + 1;
+        int ran = Random.Range(0, 17) + 1;
 
         if (ran == 1) //2단 점프 연속 + 가운데 발판
         {
@@ -124,6 +125,14 @@ public class ObstacleGenerator : MonoBehaviour
         {           
             Spawn_Obstacle(3, 6);
         }
+        else if (ran == 17) //추적장애물
+        {
+            Spawn_Item(0, new Vector2(1, -1.5f));
+        }
+        else if (ran == 18) //추적장애물
+        {
+            Spawn_Item(0, new Vector2(5, 0f));
+        }
 
         StartCoroutine(SpawnObstacles());
     }
@@ -143,6 +152,12 @@ public class ObstacleGenerator : MonoBehaviour
             Debug.Log("이 타입의 장애물은 안됨.");
     }
 
+    void Spawn_Item(int type, Vector2 pos)
+    {
+        Vector3 spawnPosition = new Vector3(pos.x + 10, pos.y, 0f);
+
+        Instantiate(itemPrefab[type], spawnPosition, Quaternion.identity);
+    }
     void Spawn_Obstacle(int type, int pos)
     {
         float y;

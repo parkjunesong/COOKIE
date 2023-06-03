@@ -25,7 +25,7 @@ public class GameUI : MonoBehaviour
         Data.Score += 10f;
         Data.Hp -= 0.3f;
         hpBarUI.value = Data.Hp / Data.MainChara.HP;
-        scoreText.text = "Score: " + Data.Score;
+        scoreText.text = "Score: " + Data.Score; 
         hpText.text = (int)Data.Hp + "";
 
         if (Data.Hp <= 0)

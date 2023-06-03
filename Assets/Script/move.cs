@@ -71,7 +71,18 @@ public class move : MonoBehaviour
                 StartCoroutine("UnBeatTime");
             }
         }
-    }
+        if (collision.gameObject.tag == "Item")
+        {
+            if (collision.GetComponent<item>().idata.Name == "HPÆ÷¼Ç(¼Ò)")
+            {
+                audio.GetComponent<AudioManager>()._play(4);
+                Data.Hp += collision.GetComponent<item>().idata.HP;
+                if (Data.Hp >= Data.MainChara.HP) Data.Hp = Data.MainChara.HP;
+            }
+
+
+        }
+    }   
 
     IEnumerator UnBeatTime()
     {

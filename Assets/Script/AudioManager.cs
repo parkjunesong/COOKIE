@@ -17,5 +17,11 @@ public class AudioManager : MonoBehaviour
     {
         audio.PlayOneShot(sounds[i]);
     }
+    public void _loop(int i)
+    {
+        audio.clip = sounds[i];
+        audio.loop = true;
+        audio.Play();
+    }
 }
 

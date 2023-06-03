@@ -45,13 +45,13 @@ public class Data : MonoBehaviour
 
     void Start()
     {
-        Speed = 7f;
+        Speed = 6f;
         Score = 0;
         MainChara = new AbilityData(MainChara.Name, MainChara.Text, MainChara.HP + SelectedTreasure.HP, MainChara.HP_P + SelectedTreasure.HP_P, MainChara.HP_M + SelectedTreasure.HP_M, MainChara.Score + SelectedTreasure.Score, MainChara.Standing);
         Hp = MainChara.HP;
 
-        audio = GameObject.Find("Audio");
+        audio = GameObject.Find("Audio");       
         int ran = Random.Range(5, 8) + 1;
-        audio.GetComponent<AudioManager>()._play(ran);
+        audio.GetComponent<AudioManager>()._loop(ran);
     }
 }
