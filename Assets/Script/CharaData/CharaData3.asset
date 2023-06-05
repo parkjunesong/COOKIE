@@ -15,7 +15,8 @@ MonoBehaviour:
   name: "\uACA9\uD22C\uAC00\uB9DB \uCFE0\uD0A4"
   text: "\uD0DC\uAD8C\uB3C4 1\uB2E8"
   hp: 80
-  hp_plus: 1
-  hp_minus: 1
-  score: 1
+  hp_plus: 0
+  hp_minus: 0
+  score: 0
   standing: {fileID: 21300000, guid: fd098fb4cf57bad419701c802e442b7e, type: 3}
+  ani: {fileID: 0}

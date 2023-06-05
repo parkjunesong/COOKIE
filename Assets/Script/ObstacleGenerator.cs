@@ -6,19 +6,33 @@ public class ObstacleGenerator : MonoBehaviour
     public GameObject[] obstaclePrefab = new GameObject[5]; //장애물 오브젝트의 프리팹을 가리키는 변수
     public GameObject[] itemPrefab = new GameObject[5];
     public GameObject[] scaffoldingPrefab = new GameObject[5];
+    public GameObject[] mapPrefab = new GameObject[5];
     public float spawnInterval; //장애물 스폰 주기를 결정하는 변수
+    int count;
 
     void Start()
     {
+        count = 0;
         spawnInterval = 3f;
         StartCoroutine(SpawnObstacles());
     }
 
     IEnumerator SpawnObstacles()
     {
-      yield return new WaitForSeconds(spawnInterval);
+        yield return new WaitForSeconds(spawnInterval);
+        spawnInterval = 3f;
+        int ran;
 
-        int ran = Random.Range(0, 17) + 1;
+        if (count != 10)
+        {
+            ran = Random.Range(0, 15) + 1;
+            count++;
+        }
+        else
+        {
+            ran = 16;
+            count = 0;
+        }
 
         if (ran == 1) //2단 점프 연속 + 가운데 발판
         {
@@ -28,7 +42,7 @@ public class ObstacleGenerator : MonoBehaviour
             Spawn_Obstacle(1, 4);
             Spawn_Obstacle(1, 5);
 
-            Spawn_Scaffolding(1, new Vector2(3, 0));
+            Spawn_Scaffolding(1, new Vector2(3, 0.2f));
         }
         else if (ran == 2)  //1단 점프 연속 + 가운데 발판
         {
@@ -54,15 +68,16 @@ public class ObstacleGenerator : MonoBehaviour
         }
         else if (ran == 6)  //1단 발판, 2단 발판 + 장애물
         {
-            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(1, -1.3f));
             Spawn_Obstacle(0, 6);
-            Spawn_Scaffolding(0, new Vector2(6, 0));
+            Spawn_Scaffolding(0, new Vector2(6, 0.2f));
+            Spawn_Item(0, new Vector2(11, 3));
         }
         else if (ran == 7)  //1단 발판 + 장애물, 2단 발판
         {
-            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(1, -1.3f));
             Spawn_Obstacle(0, 1);
-            Spawn_Scaffolding(1, new Vector2(6, 0));
+            Spawn_Scaffolding(1, new Vector2(6, 0.2f));
         }
         else if (ran == 8)  //1단 발판 + 2단 장애물
         {
@@ -72,14 +87,14 @@ public class ObstacleGenerator : MonoBehaviour
         else if (ran == 9) //1단 장애물+ 발판 , 1단 장애물 + 발판
         {
             Spawn_Obstacle(0, 1);
-            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(1, -1.3f));
             Spawn_Obstacle(0, 7);
-            Spawn_Scaffolding(0, new Vector2(7, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(7, -1.3f));
         }
         else if (ran == 10) //1단 장애물 + 발판, 1단 장애물
         {
             Spawn_Obstacle(0, 1);
-            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(1, -1.3f));
             Spawn_Obstacle(0, 7);
         }
         else if (ran == 11) //연속 슬라이딩
@@ -92,7 +107,7 @@ public class ObstacleGenerator : MonoBehaviour
         {
             Spawn_Obstacle(2, 1);
             Spawn_Obstacle(2, 2);
-
+            Spawn_Item(0, new Vector2(4.5f, -1.5f));
             Spawn_Obstacle(2, 7);
             Spawn_Obstacle(2, 8);
         }
@@ -112,26 +127,19 @@ public class ObstacleGenerator : MonoBehaviour
         }
         else if (ran == 15) //장애물 길목, 2단 장애물 2개
         {
-            Spawn_Scaffolding(0, new Vector2(1, -1.5f));
-            Spawn_Scaffolding(0, new Vector2(2, -1.5f));
-            Spawn_Scaffolding(0, new Vector2(3, -1.5f));
-            Spawn_Scaffolding(0, new Vector2(4, -1.5f));
-            Spawn_Scaffolding(0, new Vector2(5, -1.5f));
+            Spawn_Scaffolding(0, new Vector2(1, -1.3f));
+            Spawn_Scaffolding(0, new Vector2(2, -1.3f));
+            Spawn_Scaffolding(0, new Vector2(3, -1.3f));
+            Spawn_Scaffolding(0, new Vector2(4, -1.3f));
+            Spawn_Scaffolding(0, new Vector2(5, -1.3f));
 
             Spawn_Obstacle(1, 6);
             Spawn_Obstacle(1, 7);
         }
-        else if (ran == 16) //추적장애물
-        {           
-            Spawn_Obstacle(3, 6);
-        }
-        else if (ran == 17) //추적장애물
+        else if (ran == 16) //체력 증가
         {
-            Spawn_Item(0, new Vector2(1, -1.5f));
-        }
-        else if (ran == 18) //추적장애물
-        {
-            Spawn_Item(0, new Vector2(5, 0f));
+            Spawn_Map(0);
+            spawnInterval = 4f;
         }
 
         StartCoroutine(SpawnObstacles());
@@ -142,8 +150,8 @@ public class ObstacleGenerator : MonoBehaviour
         if (type == 0 || type == 1)
         {
             float y = 0;
-            if (type == 0) y = -1.5f;
-            else if (type == 1) y = 0f;
+            if (type == 0) y = -1.3f;
+            else if (type == 1) y = 0.2f;
 
             Spawn_Obstacle(type, pos);
             Instantiate(scaffoldingPrefab[0], new Vector3(pos + 10, y, 0f), Quaternion.identity);
@@ -171,6 +179,10 @@ public class ObstacleGenerator : MonoBehaviour
         Vector3 spawnPosition = new Vector3(pos.x + 10, pos.y, 0f);
 
         Instantiate(scaffoldingPrefab[type], spawnPosition, Quaternion.identity);
+    }
+    void Spawn_Map(int type)
+    {
+        Instantiate(mapPrefab[type], new Vector3(10, 0, 0), Quaternion.identity);
     }
 
 }
