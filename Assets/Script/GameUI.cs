@@ -9,12 +9,13 @@ public class GameUI : MonoBehaviour
     public Text scoreText;
     public Text hpText;
     public GameObject pauseButton;
-    
+    public Text finalScoreText;
+
 
     void Start()
     {
         gameOverUI.SetActive(false);
-
+        finalScoreText.gameObject.SetActive(false);
         StartCoroutine(Timer());
     }
 
@@ -44,5 +45,8 @@ public class GameUI : MonoBehaviour
         scoreText.gameObject.SetActive(false); // 점수 UI 비활성화
         pauseButton.SetActive(false);
         gameOverUI.SetActive(true); // 게임 오버 창 띄우기
+        finalScoreText.text = "Score: " + Data.Score; // 최종Score 표시
+        finalScoreText.gameObject.SetActive(true); // finalScoreText 활성화
     }
+
 }
