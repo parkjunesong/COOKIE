@@ -68,6 +68,11 @@ bgm 추가
 랭킹판 메인씬에 넣어서 쿠키, 보물 선택 시 랭킹판 사라지게 함.
 게임오버창에 최종 스코어 추가
 
+6/9)
+랭킹 ui 업데이트
+랭킹 시스템 구현
+
+
 [main scene]
 1. 쿠키 선택 기능 구현: 
 CharaData.cs 와 ScriptableObject 기능으로 데이터 관리(Assets\Script\CharaData 폴더 참조)
