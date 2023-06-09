@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
+
 public class GameUI : MonoBehaviour
 {
     public GameObject gameOverUI;
@@ -10,6 +12,8 @@ public class GameUI : MonoBehaviour
     public Text hpText;
     public GameObject pauseButton;
     public Text finalScoreText;
+    public InputField Rname;
+    public GameObject gotomain;
 
 
     void Start()
@@ -47,6 +51,30 @@ public class GameUI : MonoBehaviour
         gameOverUI.SetActive(true); // 게임 오버 창 띄우기
         finalScoreText.text = "Score: " + Data.Score; // 최종Score 표시
         finalScoreText.gameObject.SetActive(true); // finalScoreText 활성화
+    }
+
+    public void inputName()
+    {
+        string name = "유저";
+        name = Rname.text;
+
+        int n = 0;
+        while (true)
+        {
+            if (File.Exists("gamelog/" + "log_" + n.ToString() + ".txt") == false)
+            {
+                var file = File.CreateText("gamelog/" + "log_" + n.ToString() + ".txt");
+                StreamWriter sw = file;
+                sw.WriteLine(Data.MainChara.Name + "," + Data.SelectedTreasure.Name + "," + Data.Score + "," + name);
+                sw.Flush();
+                sw.Close();
+                file.Close();
+                break;
+            }
+            else n++;
+        }
+
+        gotomain.SetActive(true);
     }
 
 }
