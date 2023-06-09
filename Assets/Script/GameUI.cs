@@ -61,9 +61,9 @@ public class GameUI : MonoBehaviour
         int n = 0;
         while (true)
         {
-            if (File.Exists("gamelog/" + "log_" + n.ToString() + ".txt") == false)
+            if (File.Exists("Assets/gamelog/" + "log_" + n.ToString() + ".txt") == false)
             {
-                var file = File.CreateText("gamelog/" + "log_" + n.ToString() + ".txt");
+                var file = File.CreateText("Assets/gamelog/" + "log_" + n.ToString() + ".txt");
                 StreamWriter sw = file;
                 sw.WriteLine(Data.MainChara.Name + "," + Data.SelectedTreasure.Name + "," + Data.Score + "," + name);
                 sw.Flush();

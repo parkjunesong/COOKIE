@@ -29,10 +29,10 @@ public class mm : MonoBehaviour
         List<RankingData> Rdata = new List<RankingData>();
         while (true)
         {
-            if (File.Exists("gamelog/" + "log_" + n.ToString() + ".txt") == false) break;
+            if (File.Exists("Assets/gamelog/" + "log_" + n.ToString() + ".txt") == false) break;
             else
             {
-                var file = File.OpenText("gamelog/" + "log_" + n.ToString() + ".txt");
+                var file = File.OpenText("Assets/gamelog/" + "log_" + n.ToString() + ".txt");
                 StreamReader sr = file;
 
                 string data_String = sr.ReadLine();
