@@ -18,7 +18,7 @@ public class ButtonScript : MonoBehaviour
     {
         if (Data.MainChara.Name != "None")
         {
-            audio.GetComponent<AudioManager>()._play(1); // n초 대기시켜서 사운드 들리게
+            audio.GetComponent<AudioManager>()._play(1); 
             SceneManager.LoadScene("play");
         }           
     }
@@ -34,11 +34,6 @@ public class ButtonScript : MonoBehaviour
         Scene[2].SetActive(false);
         Scene[0].SetActive(true);
         audio.GetComponent<AudioManager>()._play(0);
-    }
-    public void Goto_main()
-    {
-        SceneManager.LoadScene("main");
-        Time.timeScale = 1f; //재시작
     }
     public void Goto_treasure()
     {
@@ -59,5 +54,10 @@ public class ButtonScript : MonoBehaviour
         pause.SetActive(true);
         resume.SetActive(false);
         audio.GetComponent<AudioManager>()._play(0);
+    }
+    public void Goto_main()
+    {
+        SceneManager.LoadScene("main");
+        Time.timeScale = 1f; //재시작
     }
 }
